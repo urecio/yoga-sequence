@@ -1,0 +1,13 @@
+@mixin ashana($bgposition1,$bgposition2){
+  background:url('/images/cr_gmn_lg.png') $bgposition1 $bgposition2 no-repeat;
+}
+.ashana1 {@include ashana(40px,40px);}
+.ashana2 {@include ashana(40px,40px);}
+.ashana3 {@include ashana(40px,40px);}
+.ashana4 {@include ashana(40px,40px);}
+.ashana5 {@include ashana(40px,40px);}
+.ashana6 {@include ashana(40px,40px);}
+.ashana7 {@include ashana(40px,40px);}
+.ashana8 {@include ashana(40px,40px);}
+.ashana9 {@include ashana(40px,40px);}
+.ashana10 {@include ashana(40px,40px);}
