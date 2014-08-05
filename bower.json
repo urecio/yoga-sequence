@@ -14,7 +14,8 @@
     "angular-touch": "1.2.16",
     "angular-route": "1.2.16",
     "angular-ui-sortable": "~0.12.8",
-    "angular-route-styles": "https://github.com/urecio/angular-route-styles.git"
+    "angular-route-styles": "https://github.com/urecio/angular-route-styles.git",
+    "angular-dragdrop": "https://github.com/codef0rmer/angular-dragdrop.git#~1.0.7"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

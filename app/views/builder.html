@@ -5,5 +5,9 @@
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-lg-8"></div>
+    <div data-drop="true" data-jqyoui-options jqyoui-droppable jqyoui-draggable ng-controller="SequencecontrollerCtrl"
+         ui-sortable ng-model="sequence" class="col-xs-12 col-sm-6 col-lg-8" style="height:100px">
+        <div class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left step {{ step.shortname }}"
+             ng-repeat="step in sequence"></div>
+    </div>
 </div>

@@ -3,13 +3,17 @@
   width: $width;
   height: $height;
 }
-.ashana1 {@include ashana(-39px, 0, 108px, 146px);}
-.ashana2 {@include ashana(-185px, 3px, 148px, 146px);}
-.ashana3 {@include ashana(-360px,5px, 127px, 146px);}
-.ashana4 {@include ashana(-537px,00px, 108px, 146px);}
-.ashana5 {@include ashana(40px,40px, 108px, 146px);}
-.ashana6 {@include ashana(40px,40px, 108px, 146px);}
-.ashana7 {@include ashana(40px,40px, 108px, 146px);}
-.ashana8 {@include ashana(40px,40px, 108px, 146px);}
-.ashana9 {@include ashana(40px,40px, 108px, 146px);}
-.ashana10 {@include ashana(40px,40px, 108px, 146px);}
+.ashana1 {@include ashana(-16px, 0, 44px, 61px);}
+.ashana2 {@include ashana(-79px, 0px, 58px, 61px);}
+.ashana3 {@include ashana(-155px, 0px, 59px, 61px);}
+.ashana4 {@include ashana(-234px, 0px, 44px, 61px);}
+.ashana5 {@include ashana(-16px,-61px, 50px, 61px);}
+.ashana6 {@include ashana(-16px,40px, 44px, 61px);}
+.ashana7 {@include ashana(-16px,40px, 44px, 61px);}
+.ashana8 {@include ashana(-16px,40px, 44px, 61px);}
+.ashana9 {@include ashana(-16px,40px, 44px, 61px);}
+.ashana10 {@include ashana(-16px,40px, 44px, 61px);}
+.step{
+  padding:20px;
+  cursor: move;
+}

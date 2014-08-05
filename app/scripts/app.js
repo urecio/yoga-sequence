@@ -16,7 +16,10 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-        'routeStyles'
+        'routeStyles',
+        'yogasequenceAppPosturelist',
+        'yogasequenceAppSequence'
+
   ])
   .config(function ($routeProvider) {
     $routeProvider
