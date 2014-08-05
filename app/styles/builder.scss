@@ -1,13 +1,15 @@
-@mixin ashana($bgposition1,$bgposition2){
-  background:url('/images/cr_gmn_lg.png') $bgposition1 $bgposition2 no-repeat;
+@mixin ashana($bgposition1,$bgposition2, $width, $height){
+  background: url("/images/cr_gmn_lg.png") $bgposition1 $bgposition2  no-repeat;
+  width: $width;
+  height: $height;
 }
-.ashana1 {@include ashana(40px,40px);}
-.ashana2 {@include ashana(40px,40px);}
-.ashana3 {@include ashana(40px,40px);}
-.ashana4 {@include ashana(40px,40px);}
-.ashana5 {@include ashana(40px,40px);}
-.ashana6 {@include ashana(40px,40px);}
-.ashana7 {@include ashana(40px,40px);}
-.ashana8 {@include ashana(40px,40px);}
-.ashana9 {@include ashana(40px,40px);}
-.ashana10 {@include ashana(40px,40px);}
+.ashana1 {@include ashana(-39px, 0, 108px, 146px);}
+.ashana2 {@include ashana(-185px, 3px, 148px, 146px);}
+.ashana3 {@include ashana(-360px,5px, 127px, 146px);}
+.ashana4 {@include ashana(-537px,00px, 108px, 146px);}
+.ashana5 {@include ashana(40px,40px, 108px, 146px);}
+.ashana6 {@include ashana(40px,40px, 108px, 146px);}
+.ashana7 {@include ashana(40px,40px, 108px, 146px);}
+.ashana8 {@include ashana(40px,40px, 108px, 146px);}
+.ashana9 {@include ashana(40px,40px, 108px, 146px);}
+.ashana10 {@include ashana(40px,40px, 108px, 146px);}
