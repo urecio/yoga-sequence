@@ -7,7 +7,7 @@
  * # postureList
  */
 /*global $:false */
-angular.module('yogasequenceAppPosturelist',['ngDragDrop'])
+angular.module('yogasequenceAppPosturelist',[])
     .factory('posturesFactory', function(){
         var posturesJson = [
             {'id':1,'name':'ashana1',
@@ -54,7 +54,7 @@ angular.module('yogasequenceAppPosturelist',['ngDragDrop'])
             getAllPostures : getAllPostures
         };
     })
-    .filter('searchFilter',['posturesFactory', function(posturesFactory){
+    .filter('search',['posturesFactory', function(posturesFactory){
         return function(arr, text){
             if(!text){ return arr;}
             else {return posturesFactory.searchPosture(text);}
@@ -63,13 +63,12 @@ angular.module('yogasequenceAppPosturelist',['ngDragDrop'])
   .directive('postureList',['posturesFactory', function (posturesFactory) {
     return {
       template: '<input type="text" ng-model="searchText" placeholder="search any ashana"/>' +
-          '<div data-drag="true" data-jqyoui-options="{revert: \'invalid\'}"' +
-            ' ng-model="ashanas" jqyoui-draggable="{animate:true}" ' +
-          'class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left {{ ashana.shortname }}" ' +
-          'ng-repeat="ashana in ashanas | searchFilter:searchText"></div>',
+          '<div class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left ashana {{ ashana.shortname }}" ' +
+          'ng-repeat="ashana in ashanas | search:searchText"></div>',
       restrict: 'E',
       link: function postLink(scope) {
            scope.ashanas = posturesFactory.getAllPostures();
+
       }
     };
   }]);

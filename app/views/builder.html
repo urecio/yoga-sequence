@@ -1,13 +1,14 @@
-<div class="row">
+<div  ng-controller="SequencecontrollerCtrl"  class="row">
     <div class="col-xs-6 col-lg-4">
-        <div class="col-lg-1 col-lg-offset-1">
+        <div ui-sortable="sortableOptions" ng-model="ashanas" class="ashanas-container"
+              class="col-lg-1 col-lg-offset-1" style="border:1px solid blue;height: 100px">
             <posture-list></posture-list>
         </div>
     </div>
 
-    <div data-drop="true" data-jqyoui-options jqyoui-droppable jqyoui-draggable ng-controller="SequencecontrollerCtrl"
-         ui-sortable ng-model="sequence" class="col-xs-12 col-sm-6 col-lg-8" style="height:100px">
-        <div class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left step {{ step.shortname }}"
-             ng-repeat="step in sequence"></div>
+    <div ng-model="ashanas" class="ashanas-container" ui-sortable="sortableOptions" ng-model="sequence"
+         class="col-xs-12 col-sm-6 col-lg-8" style="height:100px;border:1px solid black;">
+        <div class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left ashana {{ ashana.shortname }}"
+             ng-repeat="ashana in sequence"></div>
     </div>
 </div>

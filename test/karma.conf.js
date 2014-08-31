@@ -10,13 +10,23 @@ module.exports = function(config) {
 
     // base path, that will be used to resolve files and exclude
     basePath: '../',
+      reporters: ['progress','coverage'],
 
+      //coverage reporter type
+      coverageReporter: {
+          type : 'html',
+          dir  : 'test/coverage'
+      },
+      preprocessors: {
+          'app/scripts/**/*.js': 'coverage'
+      },
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
       'bower_components/angular/angular.js',
+        'bower_components/jquery/dist/jquery.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-cookies/angular-cookies.js',
@@ -24,6 +34,8 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
+      'bower_components/angular-route-styles/route-styles.js',
+        'bower_components/angular-ui-sortable/sortable.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
@@ -50,7 +62,8 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-jasmine',
+        'karma-coverage'
     ],
 
     // Continuous Integration mode
