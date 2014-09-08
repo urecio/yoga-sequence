@@ -13,6 +13,10 @@ angular.module('yogasequenceAppSequence',['ui.sortable'])
             placeholder: 'ashana',
             connectWith: '.ashanas-container'
         };
+        $scope.sortableOptions2 = {
+            placeholder: 'sequence',
+            connectWith: '.ashanas-container'
+        };
         //todo: fix the weird behaviour. Check the config because without the placeholder property it works better
         //http://codepen.io/thgreasi/pen/uFile
         $scope.sequence =[{'id':1,'name':'ashana1',

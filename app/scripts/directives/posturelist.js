@@ -63,11 +63,18 @@ angular.module('yogasequenceAppPosturelist',[])
   .directive('postureList',['posturesFactory', function (posturesFactory) {
     return {
       template: '<input type="text" ng-model="searchText" placeholder="search any ashana"/>' +
+          '<div ng-if="uisortable" ui-sortable="sortableOptions" ng-model="ashanas"'+
+        ' class="ashanas-container col-lg-1 col-lg-offset-1" style="border:1px solid blue;height: 100px">' +
           '<div class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left ashana {{ ashana.shortname }}" ' +
+          'ng-repeat="ashana in ashanas | search:searchText"></div>' +
+              '</div>'+
+          '<div ng-if="!uisortable" class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left ashana {{ ashana.shortname }}" ' +
           'ng-repeat="ashana in ashanas | search:searchText"></div>',
       restrict: 'E',
-      link: function postLink(scope) {
-           scope.ashanas = posturesFactory.getAllPostures();
+      link: function postLink(scope,element,attrs) {
+          //initializing scope with attrs
+          scope.uisortable = attrs.uisortable;
+          scope.ashanas = posturesFactory.getAllPostures();
 
       }
     };
