@@ -35,6 +35,9 @@ angular
             templateUrl: 'views/builder.html',
             css: 'styles/builder.css'
         })
+        .when('/prueba', {
+            templateUrl: 'views/pruebasortable.html'
+        })
       .otherwise({
         redirectTo: '/'
       });

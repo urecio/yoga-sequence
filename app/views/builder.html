@@ -1,11 +1,18 @@
-<div  ng-controller="SequencecontrollerCtrl"  class="row">
+<div ng-controller="SequencecontrollerCtrl" class="row">
     <div class="col-xs-6 col-lg-4">
-            <posture-list uisortable="true"></posture-list>
+
+        <div ui-sortable="sortableOptions" ng-model="ashanas"
+             class="ashanas-container col-lg-1 col-lg-offset-1" style="border:1px solid blue;height: 100px">
+
+            <div class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left ashana {{ ashana.shortname }}"
+                 ng-repeat="ashana in ashanas | search:searchText"></div>
+
+        </div>
     </div>
 
-    <div ng-model="sequence" class="ashanas-container" ui-sortable="sortableOptions2"
-         class="col-xs-12 col-sm-6 col-lg-8" style="height:100px;border:1px solid black;">
+    <div ng-model="sequence" ui-sortable="sortableOptions"
+         class="col-xs-12 col-sm-6 col-lg-8 ashanas-container" style="height:100px;border:1px solid black;">
         <div class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left ashana {{ ashana.shortname }}"
-             ng-repeat="ashana in ashanas"></div>
+             ng-repeat="ashana in sequence"></div>
     </div>
 </div>
