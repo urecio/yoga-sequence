@@ -1,12 +1,15 @@
 <div ng-controller="SequencecontrollerCtrl" class="row">
-    <div class="col-xs-6 col-lg-4">
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <posture-list uisortable="true" module-size="small"></posture-list>
+        </div>
+        <div ng-model="sequence" ui-sortable="sortableOptions"
+             class="col-xs-9 col-sm-9 col-md-9 col-lg-9 ashanas-container">
 
-        <posture-list uisortable="true"></posture-list>
-    </div>
-
-    <div ng-model="sequence" ui-sortable="sortableOptions"
-         class="col-xs-12 col-sm-6 col-lg-8 ashanas-container" style="height:100px;border:1px solid black;">
-        <div class="col-xs-6 col-lg-4 col-lg-offset-0 no-padding-left ashana {{ ashana.shortname }}"
-             ng-repeat="ashana in sequence"></div>
+            <div class="ashana" ng-repeat="ashana in sequence">
+                    <div class="{{ ashana.shortname }}">
+                     </div>
+            </div>
+        </div>
     </div>
 </div>

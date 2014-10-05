@@ -1,3 +1,5 @@
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/mixins/_grid.scss";
 @mixin ashana($bgposition1,$bgposition2, $width, $height){
   background: url("/images/cr_gmn_lg.png") $bgposition1 $bgposition2  no-repeat;
   width: $width;
@@ -13,7 +15,10 @@
 .ashana8 {@include ashana(-16px,40px, 44px, 61px);}
 .ashana9 {@include ashana(-16px,40px, 44px, 61px);}
 .ashana10 {@include ashana(-16px,40px, 44px, 61px);}
-.ashana{
-  padding:20px;
+.ashana {
+  @include make-xs-column(1, auto);
+  @include make-sm-column(1, auto);
+  @include make-md-column(1, auto);
+  @include make-lg-column(1, auto);
   cursor: move;
 }
