@@ -74,8 +74,6 @@ angular.module('yogasequenceAppPosturelist',[])
               if (angular.element(e.target).hasClass('ashanasSearch') &&
                   e.target !== ui.item.sortable.droptarget[0]) {
                 scope.ashanas = originalAshanas.slice(); 
-            console.log(scope.ashanas);
-            console.log(scope.sequence);
               }
             }
         };

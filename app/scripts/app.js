@@ -16,7 +16,6 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-        'routeStyles',
         'yogasequenceAppPosturelist',
         'yogasequenceAppSequence'
 
@@ -32,8 +31,7 @@ angular
         controller: 'AboutCtrl'
       })
         .when('/builder', {
-            templateUrl: 'views/builder.html',
-            css: 'styles/builder.css'
+            templateUrl: 'views/builder.html'
         })
         .when('/prueba', {
             templateUrl: 'views/pruebasortable.html'

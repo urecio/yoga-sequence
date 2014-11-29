@@ -2,7 +2,7 @@
 
 <div ng-if="uisortable" ui-sortable="sortableOptions" ng-model="ashanas" class="ashanas-container ashanasSearch row"> 
 
-        <div class="ashana" ng-repeat="ashana in ashanas | search:searchText"> 
+        <div class="ashana" ng-repeat="ashana in ashanas track by $index | search:searchText"> 
 
                 <div class="{{ ashana.shortname }}"></div> 
 
