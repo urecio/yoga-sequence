@@ -22,3 +22,10 @@
   @include make-lg-column(1, auto);
   cursor: move;
 }
+.ashanasSearch .ashana{
+  @include make-xs-column(4, auto);
+  @include make-sm-column(4, auto);
+  @include make-md-column(4, auto);
+  @include make-lg-column(4, auto);
+  cursor: move;
+}

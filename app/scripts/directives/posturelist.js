@@ -20,17 +20,6 @@ angular.module('yogasequenceAppPosturelist',[])
                 'shortname':'ashana4'},
             {'id':5,'name':'ashana5',
                 'shortname':'ashana5'}
-//            ,
-//            {'id':6,'name':'ashana6',
-//                'shortname':'ashana6'},
-//            {'id':7,'name':'ashana7',
-//                'shortname':'ashana7'},
-//            {'id':8,'name':'ashana8',
-//                'shortname':'ashana8'},
-//            {'id':9,'name':'ashana9',
-//                'shortname':'ashana9'},
-//            {'id':10,'name':'ashana10',
-//                'shortname':'ashana10'}
         ];
         var getPosturesById = function(id){
             //todo: search by id from the database
@@ -63,22 +52,33 @@ angular.module('yogasequenceAppPosturelist',[])
   .directive('postureList',['posturesFactory', function (posturesFactory) {
     return {
       restrict: 'E',
-        template: '<input type="text" ng-model="searchText" placeholder="search any ashana"/>' +
-        '<div ng-if="uisortable" ui-sortable="sortableOptions" ng-model="ashanas"' +
-        'class="ashanas-container row">' +
-        '<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"' +
-        'ng-repeat="ashana in ashanas | search:searchText">' +
-        ' <div class="ashana {{ ashana.shortname }}"></div>' +
-        '</div>' +
-        '</div>' +
-        '<div ng-if="!uisortable" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" ' +
-        'ng-repeat="ashana in ashanas | search:searchText">' +
-        ' <div class="ashana {{ ashana.shortname }}"></div>' +
-        '</div>',
+        templateUrl: 'views/postureList.html',
         link: function postLink(scope,element,attrs) {
-          //initializing scope with attrs
+          //initializations
           scope.uisortable = attrs.uisortable;
-          scope.ashanas = posturesFactory.getAllPostures();
+          var originalAshanas = posturesFactory.getAllPostures();
+          scope.ashanas = originalAshanas.slice();
+
+          // configuration of the ui sortable
+          scope.sortableOptions = {
+            placeholder: 'ashana',
+            connectWith: '.ashanas-container',
+            forceHelperSize: true,
+            opacity: 0.5,
+            update: function (e, ui) {
+            if (ui.item.sortable.droptarget.hasClass('ashanasSearch')) {
+                ui.item.sortable.cancel();
+              }
+            },
+            stop: function (e, ui) {
+              if (angular.element(e.target).hasClass('ashanasSearch') &&
+                  e.target !== ui.item.sortable.droptarget[0]) {
+                scope.ashanas = originalAshanas.slice(); 
+            console.log(scope.ashanas);
+            console.log(scope.sequence);
+              }
+            }
+        };
 
       }
     };

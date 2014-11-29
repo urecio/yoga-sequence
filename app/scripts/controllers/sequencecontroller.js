@@ -9,14 +9,7 @@
  */
 angular.module('yogasequenceAppSequence',['ui.sortable'])
   .controller('SequencecontrollerCtrl', function ($scope) {
-        $scope.sortableOptions = {
-            placeholder: 'ashana',
-            connectWith: '.ashanas-container',
-            forceHelperSize: true,
-            opacity: 0.5
-        };
-        //todo: fix the weird behaviour. Check the config because without the placeholder property it works better
-        //http://codepen.io/thgreasi/pen/uFile
+        
         $scope.sequence =[{'id':1,'name':'ashana1',
             'shortname':'ashana1'},
             {'id':2,'name':'ashana2',
@@ -27,7 +20,6 @@ angular.module('yogasequenceAppSequence',['ui.sortable'])
                 'shortname':'ashana4'},
             {'id':5,'name':'ashana5',
                 'shortname':'ashana5'}];
-
 
 
   });
