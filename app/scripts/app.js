@@ -17,10 +17,11 @@ angular
     'ngSanitize',
     'ngTouch',
         'yogasequenceAppPosturelist',
-        'yogasequenceAppSequence'
+        'yogasequenceAppSequence',
+        'restangular'
 
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, RestangularProvider, apiUrl) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -39,4 +40,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+      RestangularProvider.setBaseUrl(apiUrl);
+  })
+  .constant('apiUrl', 'http://localhost:3000/api');

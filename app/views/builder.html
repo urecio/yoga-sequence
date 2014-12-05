@@ -8,9 +8,10 @@
              class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-1 col-sm-offset-1
               col-md-offset-1 col-lg-offset-1 ashanas-container">
 
-            <div class="ashana" ng-repeat="ashana in sequence track by $index">
+            <p ng-hide="hasSequenceAshanas()">Drop Ashanas here!</p>
+            <div class="ashana" ng-repeat="ashana in sequence track by $index+'sequence'">
                     <div class="{{ ashana.shortname }}">
-                     </div>
+                    </div>
             </div>
         </div>
     </div>

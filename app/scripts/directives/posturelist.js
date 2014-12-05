@@ -8,45 +8,29 @@
  */
 /*global $:false */
 angular.module('yogasequenceAppPosturelist',[])
-    .factory('posturesFactory', function(){
-        var posturesJson = [
-            {'id':1,'name':'ashana1',
-                'shortname':'ashana1'},
-            {'id':2,'name':'ashana2',
-                'shortname':'ashana2'},
-            {'id':3,'name':'ashana3',
-                'shortname':'ashana3'},
-            {'id':4,'name':'ashana4',
-                'shortname':'ashana4'},
-            {'id':5,'name':'ashana5',
-                'shortname':'ashana5'}
-        ];
-        var getPosturesById = function(id){
-            //todo: search by id from the database
-            return $.grep(posturesJson, function(n){ // just use arr
-                return n.id === id;
-            });
-        };
-        var searchPosture = function(text){
+    .service('posturesFactory', function(Restangular, $q){
+        
+        var baseAshanas = Restangular.all('Ashanas');
+
+        this.searchAshana = function(ashanas, text){
             //todo: search by text (this can by a filter with everything in an array or can be done with elasticsearch http://www.sitepoint.com/building-recipe-search-site-angular-elasticsearch/)
-            return $.grep(posturesJson, function(n){ // just use arr
+            return $.grep(ashanas, function(n){ // just use arr
                 return n.name.match('^'+text);
             });
         };
-        var getAllPostures = function (){
-            //todo: return from database
-            return posturesJson;
+        this.getAllPostures = function (){
+            var deferred = $q.defer();
+            baseAshanas.getList().then(function(ashanas){
+                deferred.resolve(ashanas);
+            });
+            return deferred.promise;
         };
-        return {
-            getPosturesById : getPosturesById,
-            searchPosture : searchPosture,
-            getAllPostures : getAllPostures
-        };
+        
     })
     .filter('search',['posturesFactory', function(posturesFactory){
         return function(arr, text){
             if(!text){ return arr;}
-            else {return posturesFactory.searchPosture(text);}
+            else {return posturesFactory.searchAshana(arr, text);}
         };
     }])
   .directive('postureList',['posturesFactory', function (posturesFactory) {
@@ -55,10 +39,13 @@ angular.module('yogasequenceAppPosturelist',[])
         templateUrl: 'views/postureList.html',
         link: function postLink(scope,element,attrs) {
           //initializations
+          var originalAshanas = {};
           scope.uisortable = attrs.uisortable;
-          var originalAshanas = posturesFactory.getAllPostures();
-          scope.ashanas = originalAshanas.slice();
-
+          //get all ashanas
+          posturesFactory.getAllPostures().then(function(ashanas){
+          originalAshanas = ashanas;
+          scope.ashanas = originalAshanas.slice();  
+          });
           // configuration of the ui sortable
           scope.sortableOptions = {
             placeholder: 'ashana',
