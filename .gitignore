@@ -6,3 +6,14 @@ bower_components
 **/.idea/workspace.xml
 **/.idea/tasks.xml
 **/.idea/*.iws
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/index.html
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/prettify.css
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/prettify.js
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/scripts/app.js.html
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/scripts/index.html
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/scripts/controllers/about.js.html
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/scripts/controllers/index.html
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/scripts/controllers/main.js.html
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/scripts/controllers/sequencecontroller.js.html
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/scripts/directives/index.html
+test/coverage/PhantomJS 1.9.8 (Mac OS X)/scripts/directives/posturelist.js.html
